@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>change taxt with js</title>
+		<meta name="description" content="html page for replacing name">
+		<meta name="keywords" content="learn html, learn js, learn css ">
+		<meta name="author" content="Leo Elsa Koshy">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<meta charset="UTF-8">
+		<style>
+			body {
+				display: grid;
+				justify-content: center;
+			}
+			.box {
+				background-color: yellow;
+				width: 300px;
+				height: 300px;
+				color: blue;
+				text-align: center;
+			}
+			.box h2 {
+    				position: relative;
+    				top: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<h2 id="fullname"></h2>
+		</div>
+		<script>
+			var fname = window.prompt("Enter your Fullname");
+			var el = document.getElementById("fullname");
+			el.textContent = fname;
+		</script>
+	</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Palindrome</title>
+		<meta name="description" content="html page for checking string is palindrome or not">
+		<meta name="keywords" content="Palindrome check, learn html, learn js, learn css ">
+		<meta name="author" content="Leo Elsa Koshy">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<meta charset="UTF-8">
+		<style>
+			.box {
+				border: 2px dashed deeppink;
+				width: 500px;
+				height: 150px;
+				padding: 20px;
+				text-align: center;
+			}
+			.box h2 { 
+				color: brown;
+			}
+			.box h2 #strValue {
+				font-style: italic;
+			}
+			.box h5 { 
+				font-size: 18px;
+    				font-weight: 500;
+				background-color: #ede4f3;
+    				display: inline;
+    				padding: 5px;
+				border-radius: 8px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<h2>Given String is : <span id="strValue"></span></h2>
+			<h5 id="result"></5>
+		</div>
+		<script>
+			let x = window.prompt("Enter a string to check Palindrome or not");
+			let stringDiv = document.getElementById("strValue");
+			stringDiv.innerText = x;
+			let formatX = x.toLowerCase();
+			let xlength = x.length;
+			let decIndex = xlength-1;
+			let flag = true;
+			for(var i=0; i<(xlength/2); i++) {
+				if(formatX[i]!=formatX[decIndex]) {
+					flag = false;
+					break;
+				}
+				decIndex--;
+			}
+			let resultDiv = document.getElementById("result");
+			if(flag) {
+				resultDiv.innerText="The string is palindrome.";
+				resultDiv.style.color = 'green';
+			} else {
+				resultDiv.innerText="The string is not palindrome.";
+				resultDiv.style.color = 'orange';
+			} 
+		</script>
+	</body>
+</html>

@@ -1,0 +1,62 @@
+<!DCTYPE HTML>
+<html>
+	<head>
+		<title>Anagrams</title>
+		<meta name="description" content="html page for checking strings are anagrams or not">
+		<meta name="keywords" content="Anagrams check, learn html, learn js, learn css ">
+		<meta name="author" content="Leo Elsa Koshy">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<meta charset="UTF-8">
+		<style>
+
+		</style>
+	</head>
+	<body>
+		<h3 id="string1"></h3>
+		<h3 id="string2"></h3>
+		<div id="result"></div>
+		<script>
+			let s1 = window.prompt("Enter the first string");
+			let s2 = window.prompt("Enter second string");
+			let s1lower = s1.toLowerCase();
+			let s2lower = s2.toLowerCase();
+			let s1Div = document.getElementById("string1");
+			let s2Div = document.getElementById("string2");
+			s1Div.innerText = s1;
+			s2Div.innerText = s2;
+			var resultDiv = document.getElementById("result");
+			if(s1lower==s2lower) {
+				result.innerText = "Enter different strings to check";
+			} else {
+				/*var final = s1lower.map((letter,index) => {
+					var match = s2lower.map((letter2,i) => {
+						
+						if(letter==letter2) {
+							unset(s2lower[i]);
+							return true;
+						}
+					});
+					if(match==false) return false;
+				});*/
+				for(var i in s1lower) {
+					var match = false;
+					for(var j in s2lower) { console.log(s1lower[i]+' '+s2lower[j]);
+						if(s1lower[i]==s2lower[j]) {
+							s2lower[j] = '';
+							match = true;
+							break;
+						} console.log(s2lower)
+					}
+					if(match==false) break;
+				}
+				if(match==true) {
+					resultDiv.innerText = "Given strings are anagrams";
+				} else {
+					resultDiv.innerText = "Given strings are not anagrams";
+				}
+				
+				
+			}
+		</script>
+	</body>
+</html>
