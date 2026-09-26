@@ -1,0 +1,54 @@
+<!DCTYPE HTML>
+<html>
+	<head>
+		<title>Students Name</title>
+		<meta name="description" content="display studens name in ul li list">
+		<meta name="keywords" content="Append element to DOM, learn html, learn js, learn css ">
+		<meta name="author" content="Leo Elsa Koshy">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<meta charset="UTF-8">
+		<style>
+			.container {
+				width: 300px;
+				min-height: 300px;
+				border: 2px solid blue;
+				padding: 10px;
+				margin: 20px;
+				background: linear-gradient(to right, #d0d4ec, #779dd9);
+			}
+			ul li {
+				font-size: 23px;
+    				color: blue;
+				list-style-type: square;
+				margin-bottom: 10px;
+			}
+			.addBtn {
+				background-color: #dee5f6;
+    				color: blue;
+    				border: none;
+    				border-radius: 50px;
+    				padding: 5px 8px;
+    				float: right;
+    				height: 40px;
+    				font-weight: bold;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<ul id="stdntList"></ul>
+			<button id="addStudent" class="addBtn">Add Student</button>
+		</div>
+		<script>
+			var btn = document.getElementById("addStudent");
+			btn.onclick = function() {
+				var studentName = window.prompt("Enter student name");
+				var li = document.createElement('li');
+				var nameText = document.createTextNode(studentName);
+				var list = document.getElementById("stdntList");
+				list.appendChild(li);
+				li.appendChild(nameText);
+			}
+		</script>
+	</body>
+</html>

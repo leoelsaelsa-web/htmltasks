@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Get FormValues</title>
+		<style>
+			body {
+				display: flex;
+				justify-content: space-evenly;
+			}
+			fieldset.formCntner {
+				border: 2px dashed brown;
+				height: 300px;
+				width: 25%;
+				margin: 10%;
+				padding: 20px;
+				display: grid;
+      				justify-content: center;
+      				align-items: center;
+			}
+			legend {
+    				font-size: 18px;
+    				padding: 5px;
+    				font-weight: 400;
+    				font-style: italic;
+				text-align: left;
+			}
+			input {
+				display: block;
+				width: 100%;
+				margin-bottom: 20px;
+				border-color: brown;
+    				height: 30px;
+			}
+			label {
+				line-height: 2;
+    				font-size: 18px;
+    				font-weight: 500;
+				font-style: italic;
+			}
+			button {
+				width: auto;
+    				background: rosybrown;
+   				height: 30px;
+    				color: black;
+    				font-size: 16px;
+    				font-weight: 400;
+    				border-radius: 5px;
+    				border-color: brown;
+			}
+			fieldset.resultDsply {
+				border: 2px dashed brown;
+				height: 300px;
+				width: 25%;
+				margin: 10%;
+				text-align: center;
+			}
+			h3 {
+				font-size: 25px;
+    				text-transform: uppercase;
+    				text-decoration: underline;
+			}
+			p {
+				font-size: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<fieldset class="formCntner">
+			<legend>Input Form</legend>
+			<form id="inputForm">
+				<label for="userName">Name</label>
+				<input type="text" name="userName" id="userName" />
+				<label for="userAge">Age</label>
+				<input type="number" name="userAge" id="userAge" />
+			</form>
+			<button id="submitBtn" onclick="displayInput();">Show Details</button>
+		</fieldset>
+		<fieldset class="resultDsply" id="formResult">
+			<legend>Output</legend>
+		</fieldset>
+		<script>
+			function displayInput(){
+				var name = document.forms['inputForm'].userName.value;
+				var age = document.forms['inputForm'].userAge.value;
+				resultDiv = document.getElementById("formResult");
+				if(age>=18) {
+					var htmlResult = `<legend>Output</legend>
+<h3>Adult</h3>`;
+					resultDiv.style.color = 'chocolate';
+				} else {
+					var htmlResult = `<legend>Output</legend>
+<h3>Minor</h3>`;
+					resultDiv.style.color = 'teal';
+				}
+				htmlResult += `<p><b>Name: </b>`+name+`</p>
+						<p><b>Age: </b>`+age+`</p>`;
+				
+				resultDiv.innerHTML = htmlResult;
+			}
+		</script>
+	</body>
+</html>

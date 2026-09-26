@@ -8,7 +8,9 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1.0">
 		<meta charset="UTF-8">
 		<style>
-
+			body {
+				display: grid;
+			}
 		</style>
 	</head>
 	<body>
@@ -25,12 +27,15 @@
 			s1Div.innerText = s1;
 			s2Div.innerText = s2;
 			var resultDiv = document.getElementById("result");
+			let s1array = s1lower.split();
+			let s2array = s2lower.split();
 			if(s1lower==s2lower) {
 				result.innerText = "Enter different strings to check";
+			} else if( s1.length!=s2.length) {
+				result.innerText = "Given strings are not anagrams";
 			} else {
 				/*var final = s1lower.map((letter,index) => {
 					var match = s2lower.map((letter2,i) => {
-						
 						if(letter==letter2) {
 							unset(s2lower[i]);
 							return true;
@@ -38,7 +43,7 @@
 					});
 					if(match==false) return false;
 				});*/
-				for(var i in s1lower) {
+				/*for(var i in s1lower) {
 					var match = false;
 					for(var j in s2lower) { console.log(s1lower[i]+' '+s2lower[j]);
 						if(s1lower[i]==s2lower[j]) {
@@ -46,6 +51,17 @@
 							match = true;
 							break;
 						} console.log(s2lower)
+					}
+					if(match==false) break;
+				}*/
+				for(i=0; i<s1.length; i++) {
+					var match = false;
+					for(j=0; j<s2.length; j++) {
+						if(s1lower[i]==s2lower[j]) {
+							s2lower[j] = '';
+							match = true;
+							break;
+						} 
 					}
 					if(match==false) break;
 				}

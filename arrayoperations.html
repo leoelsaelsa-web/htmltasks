@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Array Operations</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<meta name="author" content="">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<meta charset="UTF-8">
+		<style>
+			body {
+				display: flex;
+			}
+			div.buttons {
+				display: grid;
+				width: 200px;
+				height: 200px;
+				background-color: #eeefd2;
+				justify-content: center;
+    				align-items: center;
+			}
+			.actionBtn {
+    				margin-bottom: 5px;
+    				width: max-content;
+    				height: 40px;
+    				background-color: #e1e1d0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="buttons">
+			<button class="actionBtn" id="addBtn" onclick="addProduct();">Add Product</button>
+			<button class="actionBtn" id="removeBtn" onclick="removeProduct();">Remove Last</button>
+			<button class="actionBtn" id="showBtn" onclick="showProducts();">Show Products</button>
+		</div>
+		<div id="listPrdts"></div>
+		<script>
+			var products = [];
+			var listDiv = document.getElementById("listPrdts");
+			function addProduct() {
+				listDiv.innerHTML = '';
+				let p = window.prompt("Enter a product");
+				products.push(p);
+			}
+			function removeProduct() {
+				listDiv.innerHTML = '';
+				products.pop();
+			}
+			function showProducts() {
+				if(products.length>0) {
+					var listHtml = '<ul>';
+					products.map((item) => {
+						listHtml += '<li>'+item+'</li>';
+					});
+					listHtml += '</ul>';
+				} else {
+					var listHtml = 'No items in the products array.';
+				}
+				listDiv.innerHTML = listHtml;
+			}
+		</script>
+	</body>
+</html>
